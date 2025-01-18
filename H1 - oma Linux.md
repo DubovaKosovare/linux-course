@@ -41,7 +41,7 @@ Testauksen jälkeen siirryin Debianin asennukseen. Asennusprosessi eteni vaiheit
 ![Debianin asentaminen](Debianinasentaminen4.png)
 ![Debianin asentaminen](Debianinasentaminen5.png)
 
-Lopuksi vielä testasin Debianin toimivuutta hakemalla taas verkosta "Tero Karvinen" -sivustoa. Käikki asennuksessa tehdyt määritykset ja verkkoyhteys toimivat odotetusti.
+Lopuksi vielä testasin Debianin toimivuutta hakemalla taas verkosta "Tero Karvinen" -sivustoa. Kaikki asennuksessa tehdyt määritykset ja verkkoyhteys toimivat odotetusti.
 
 ![Toinen testi](Testi2.png)
 
