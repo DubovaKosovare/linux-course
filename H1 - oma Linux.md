@@ -69,7 +69,7 @@ Harjoituksen lopuksi tein vapaavalintaisen osion, jossa asensin Guest Additions 
 Vapaa ohjelmisto tarkoittaa, että kuka tahansa saa käyttää, tutkia, muokata, kopioida ja jakaa ohjelmistoa. Vapaa (engl. "free") ei tarkoita, että ohjelmisto olisi ilmainen, vaan se viittaa käyttäjän oikeuksiin. Ohjelmisto on vapaa vain, jos se tarjoaa kaikki seuraavat neljä vapautta:
 
 1. Vapaus käyttää ohjelmistoa käyttäjän haluamalla tavalla
-   - Kuka tahansa voi käyttää ohjelmaa millä tahansa tietokoneella ja mihin tahansa tarkoitukseen. 
+  - Kuka tahansa voi käyttää ohjelmaa millä tahansa tietokoneella ja mihin tahansa tarkoitukseen. 
 2. Vapaus tutkia ja muuttaa ohjelmistoa
   - Tämä tarkoittaa, että käyttäjä saa tarkastella alkuperäistä lähdekoodia ja voi muokata sitä haluamallaan tavallaan tai jopa poistaa sen kokonaan.  
 3. Vapaus jakaa ohjelmistoa muille
@@ -77,6 +77,7 @@ Vapaa ohjelmisto tarkoittaa, että kuka tahansa saa käyttää, tutkia, muokata,
 4. Vapaus jakaa muokattuja versioita ohjelmistosta
   - Käyttäjä voi muokata ohjelmistoa ja jakaa muokattuja versioita muille.
 
-Lähteet:
+## Lähteet:
+
 GNU Operating System. What is Free Software? https://www.gnu.org/philosophy/free-sw.html
  
