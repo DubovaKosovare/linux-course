@@ -77,7 +77,19 @@ Vapaa ohjelmisto tarkoittaa, että kuka tahansa saa käyttää, tutkia, muokata,
 4. Vapaus jakaa muokattuja versioita ohjelmistosta
   - Käyttäjä voi muokata ohjelmistoa ja jakaa muokattuja versioita muille.
 
+# H1 - Tiivistelmä raportointiohjeista
+
+Hyvässä raportoinnissa on kolme pääperiaatetta:
+
+1. Toistettavuus: Raportin avulla testit tulee voida toistaa samoilla tuloksilla. Toistettavuuden takaamiseksi raportista on käytävä ilmi ympäristö, jossa tehtävä on suoritettu (missä, milloin ja millä laitteilla tai ohjelmilla).
+2. Täsmällisyys: Raportissa on kuvattava tehtävässä annetut komennot, toimenpiteet ja niiden seuraukset. Onnistumiset ja epäonnistumiset tulee dokumentoida. Lisäksi raporttiin on kirjattava käytetyt työkalut, kellonajat ja mahdolliset vikailmoitukset.
+3. Helppolukuisuus: Raportin tulee olla selkeästi jäsennelty ja kieliopillisesti oikein kirjoitettu.
+
+Näiden lisäksi hyvässä raportissa viitataan asianmukaisesti käytettyihin lähteisiin. Vältettäviä virheitä ovat sepittäminen, plagiointi ja sellaisten kuvien käyttäminen, joihin ei ole lupaa.
+
 ## Lähteet:
 
 GNU Operating System. What is Free Software? https://www.gnu.org/philosophy/free-sw.html
+
+Karvinen T. 4.7.2006. https://terokarvinen.com/2006/raportin-kirjoittaminen-4/
  
