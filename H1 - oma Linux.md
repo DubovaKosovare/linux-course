@@ -77,7 +77,7 @@ Vapaa ohjelmisto tarkoittaa, että kuka tahansa saa käyttää, tutkia, muokata,
 4. Vapaus jakaa muokattuja versioita ohjelmistosta
   - Käyttäjä voi muokata ohjelmistoa ja jakaa muokattuja versioita muille.
 
-# H1 - Tiivistelmä raportointiohjeista
+# H1 - Tiivistelmä raportointiohjeista (tämä osio täydennetty raportille 21.1.2025 klo 17:00)
 
 Hyvässä raportoinnissa on kolme pääperiaatetta:
 
