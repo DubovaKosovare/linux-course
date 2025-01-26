@@ -83,6 +83,8 @@ Seuraavassa harjoituksessa tehtävänä oli esitellä tärkeät hakemistot, jotk
 
 ## d) The Friendly M
 
+Grep (global regular expression search) mahdollistaa tiettyjen merkkijonojen etsimisen tiedostoista. 
+
 <img src="mangrep1.png" width="600" />
 <img src="mangrep2.png" width="600" />
 <img src="mangrep3.png" width="600" />
