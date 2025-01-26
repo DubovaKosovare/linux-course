@@ -1,6 +1,6 @@
 # H2 - Komentaja Pingviini
 
-### x) Command Line Basics Revisited -tiivistelmä
+## x) Command Line Basics Revisited -tiivistelmä
 
 Komentorivi on tietokoneen käyttöliittymä, jossa käyttäjä antaa tekstimuotoisia komentoja. Näillä komennoilla ohjataan tietokonetta suorittamaan haluttuja toimintoja. Seuraavaksi esitellään muutamia tärkeitä komentoja, joilla aloittaa komentorivin käytön: 
 
@@ -27,7 +27,7 @@ Sudo-komento suorittaa järjestelmän toimintoja, jotka vaativat korkeampia oike
   - sudo apt-get -y install nethack-console: asentaa ohjelmiston
   - sudo apt-get purge nethack: poistaa ohjelmiston ja sen asetukset
 
-### a) Micro
+## a) Micro
 
 Tässä harjoituksessa asensin micro-editorin komentorivillä käyttämällä komentoa sudo apt-get install micro.
 
@@ -37,7 +37,7 @@ Asennuksen jälkeen testasin micro-editorin toimivuutta suorittamalla komennon m
 
 <img src="micro2.png" width="600" />
 
-### b) Apt
+## b) Apt
 
 Asensin kolme uutta ohjelmaa komentorivillä: htop, tree ja steam locomotive. Asensin ohjelmat yksitellen tehtävää varten. Kaikki kolme ohjelmaa voidaan kuitenkin asentaa yhtä aikaa yhdellä komennolla. Tämä onnistuu seuraavasti:
 
@@ -59,28 +59,39 @@ Steam locomotive on ohjelma, joka näyttää liikkuvan junan komentokehotteessa.
 
 <img src="locomotive.png" width="600" />
 
-### c) FHS
+## c) FHS
 
-Seuraavassa harjoituksessa tehtävänä oli esitellä tärkeät kansiot, jotka olivat listattuina Command Line Basics Revisited artikkelissa. 
+Seuraavassa harjoituksessa tehtävänä oli esitellä tärkeät hakemistot, jotka olivat listattuina Command Line Basics Revisited -artikkelissa. 
 
+#### Juurihakemisto
 <img src="Juuri.png" width="600" />
+
+#### Kotihakemisto
 <img src="koti.png" width="600" />
+
+#### Käyttäjän "kosovare" hakemisto
 <img src="kosovare.png" width="600" />
+
+#### Järjestelmän asetukset
 <img src="etc.png" width="600" />
+
+#### Ulkoiset tallennusvälineet (esim. USB)
 <img src="media.png" width="600" />
+
+#### Järjestelmän lokitiedostot
 <img src="log.png" width="600" />
 
-### d) The Friendly M
+## d) The Friendly M
 
 <img src="mangrep1.png" width="600" />
 <img src="mangrep2.png" width="600" />
 <img src="mangrep3.png" width="600" />
 
-### e) Pipe
+## e) Pipe
 
 <img src="putki.png" width="600" />
 
-### f) Rauta
+## f) Rauta
 
 <img src="lshwAsennus.png" width="600" />
 
