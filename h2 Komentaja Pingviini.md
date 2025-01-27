@@ -83,7 +83,7 @@ Seuraavassa harjoituksessa tehtävänä oli esitellä tärkeät hakemistot, jotk
 
 ## d) The Friendly M
 
-Grep (global regular expression search) mahdollistaa tiettyjen merkkijonojen etsimisen tiedostoista. 
+Tässä tehtävässä testasin grep-komennon käyttöä kolmella eri tavalla. Grep (global regular expression search) on komento, joka mahdollistaa tiettyjen merkkijonojen etsimisen tiedostoista tai syötteistä.
 
 <img src="mangrep1.png" width="600" />
 <img src="mangrep2.png" width="600" />
@@ -91,13 +91,15 @@ Grep (global regular expression search) mahdollistaa tiettyjen merkkijonojen ets
 
 ## e) Pipe
 
+Putki (pipe) on tapa ohjata yhden komennon tuloste suoraan toisen komennon käsiteltäväksi. Esimerkiksi yhden komennon tuottama tieto siirtyy automaattisesti seuraavan komennon käsiteltäväksi.
+
 <img src="putki.png" width="600" />
 
 ## f) Rauta
 
+Lshw (list hardware) on työkalu, joka näyttää listauksen järjestelmän laitteistosta (raudasta). Aloitin tämän tehtävän asentamalla lshw:n komentorivillä komennolla sudo apt-get install lshw. Tämän jälkeen suoritin komennon sudo lshw -short -sanitize, joka tulosti listauksen virtuaalikoneeni laitteistosta.
+
 <img src="lshwAsennus.png" width="600" />
-
-
 <img src="lshwTuloste.png" width="600" />
 
 H/W path: kertoo laitteen sijainnin tietokoneessa
@@ -107,8 +109,8 @@ Description: kuvaus laitteesta
 
 
 
-Lähteet: 
-
+## Lähteet: 
+How to use lshw in Linux (with practical example). Luettavissa: https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/. Luettu 27.1.2025.
 Tree command in Linux with examples. Luettavissa: https://www.geeksforgeeks.org/tree-command-unixlinux/. Luettu 26.1.2025.
 Bohn K. 10.2.2020. A Beginners Guide to htop for Process Management. Luettavissa: https://spin.atomicobject.com/htop-guide/. Luettu: 26.1.2025.
 Piping in Unix or Linux. Luettavissa: https://www.geeksforgeeks.org/piping-in-unix-or-linux/. Luettu: 26.1.2025. 
