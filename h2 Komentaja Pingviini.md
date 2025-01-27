@@ -106,13 +106,27 @@ Asennuksen jälkeen suoritin komennon sudo lshw -short -sanitize, joka näytti k
 <img src="lshwTuloste.png" width="600" />
 
 ## Lähteet: 
+
 How to use lshw in Linux (with practical example). Luettavissa: https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/. Luettu 27.1.2025.
+
 Tree command in Linux with examples. Luettavissa: https://www.geeksforgeeks.org/tree-command-unixlinux/. Luettu 26.1.2025.
+
 Bohn K. 10.2.2020. A Beginners Guide to htop for Process Management. Luettavissa: https://spin.atomicobject.com/htop-guide/. Luettu: 26.1.2025.
+
 Piping in Unix or Linux. Luettavissa: https://www.geeksforgeeks.org/piping-in-unix-or-linux/. Luettu: 26.1.2025. 
+
 McKay C. 10.9.2023. How to use the grep command on Linux. Luettavissa: https://www.howtogeek.com/496056/how-to-use-the-grep-command-on-linux/. Luettu 26.1.2025.
+
 Gite V. 14.9.2023. How to install wget on a Debian or Ubuntu Linux.Luettavissa: 
+
 How to install "tree" with command-line?. Luettavissa: https://askubuntu.com/questions/572093/how-to-install-tree-with-command-line. Luettu: 25.1.2025.
+
 Gite V. 21.6.2024. How to install htop on Ubuntu Linux using apt. Luettavissa: https://www.cyberciti.biz/faq/how-to-install-htop-on-ubuntu-linux-using-apt/. Luettu 25.1.2025.
+
 r00t. How To Install Micro Text Editor on Debian 12. Luettavissa: https://idroot.us/install-micro-text-editor-debian-12/. Luettu 25.1.2025.
+
 Cocca G. 5.4.2022. Command Line for Beginners – How to Use the Terminal Like a Pro [Full Handbook]. Luettavissa: https://www.freecodecamp.org/news/command-line-for-beginners/. Luettu 25.1.2025.
+
+Comman line basics revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited. Luettu 25.1.2025.
+
+
