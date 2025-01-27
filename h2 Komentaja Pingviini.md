@@ -5,11 +5,11 @@
 Komentorivi on tietokoneen käyttöliittymä, jossa käyttäjä antaa tekstimuotoisia komentoja. Näillä komennoilla ohjataan tietokonetta suorittamaan haluttuja toimintoja. Seuraavaksi esitellään muutamia tärkeitä komentoja, joilla aloittaa komentorivin käytön: 
 
 - pwd: tulostaa nykyisen hakemiston polun
-- ls: listaa työhakemistossa olevat tiedostot 
+- ls: listaa tietyssä hakemistossa olevat tiedostot 
 - dc: vaihtaa hakemistoa 
 - mkdir: luo uuden hakemiston
 - rm: poistaa tiedoston
-- man ls: tulostaa manuaalisivun
+- man ls: tulostaa ohjesivun
 - history: tulostaa komentohistorian
 
 On tärkeää ymmärtää hakemistorakennetta, jotta komentokehotteen komentoja ja tulosteita osaa tulkita oikein:  
@@ -23,7 +23,7 @@ On tärkeää ymmärtää hakemistorakennetta, jotta komentokehotteen komentoja 
 
 Sudo-komento suorittaa järjestelmän toimintoja, jotka vaativat korkeampia oikeuksia, ja niitä voi käyttää vain sudo-oikeudet omaava käyttäjä.
 
-  - sudo apt-get update: päivittää pakettien saatavuuslistan
+  - sudo apt-get update: päivittää saatavilla olevien pakettien listan
   - sudo apt-get -y install nethack-console: asentaa ohjelmiston
   - sudo apt-get purge nethack: poistaa ohjelmiston ja sen asetukset
 
@@ -39,23 +39,23 @@ Asennuksen jälkeen testasin micro-editorin toimivuutta suorittamalla komennon m
 
 ## b) Apt
 
-Asensin kolme uutta ohjelmaa komentorivillä: htop, tree ja steam locomotive. Asensin ohjelmat yksitellen tehtävää varten. Kaikki kolme ohjelmaa voidaan kuitenkin asentaa yhtä aikaa yhdellä komennolla. Tämä onnistuu seuraavasti:
+Tässä harjoituksessa asensin kolme uutta ohjelmaa komentorivillä: htop, tree ja steam locomotive. Asensin ohjelmat yksitellen harjoitusta varten. Kaikki kolme ohjelmaa voidaan kuitenkin asentaa yhtä aikaa yhdellä komennolla. Tämä onnistuu seuraavasti:
 
 sudo apt update
 sudo apt install htop tree locomotive
 
-#### htop
+#### Htop
 Htop on tekstipohjainen prosessinhallintaohjelma, joka näyttää järjestelmän tilan tietoja ja mahdollistaa prosessien tarkastelun sekä hallinnan. Asensin htop-ohjelman komennolla sudo apt install htop.
 
 <img src="apt.htop.png" width="600" />
 
-#### tree
+#### Tree
 Tree on ohjelma, joka näyttää tiedostojen ja hakemistojen rakenteen puumaisena luettelona. Asensin tree-ohjelman komennolla sudo apt install tree.
 
 <img src="puu.png" width="600" />
 
-#### steam locomotive
-Steam locomotive on ohjelma, joka näyttää liikkuvan junan komentokehotteessa. Asensin sl-ohjelman komennolla sudo apt install locomotive.
+#### Steam locomotive
+Steam locomotive on ohjelma, joka näyttää liikkuvan junan komentokehotteessa. Asensin sl-ohjelman komennolla sudo apt install steam locomotive.
 
 <img src="locomotive.png" width="600" />
 
@@ -83,7 +83,7 @@ Seuraavassa harjoituksessa tehtävänä oli esitellä tärkeät hakemistot, jotk
 
 ## d) The Friendly M
 
-Tässä tehtävässä testasin grep-komennon käyttöä kolmella eri tavalla. Grep (global regular expression search) on komento, joka mahdollistaa tiettyjen merkkijonojen etsimisen tiedostoista tai syötteistä.
+Tässä harjoituksessa testasin grep-komennon käyttöä kolmella eri tavalla. Grep (global regular expression search) on komento, joka mahdollistaa tiettyjen merkkijonojen etsimisen esimerkiksi tiedostoista.
 
 <img src="mangrep1.png" width="600" />
 <img src="mangrep2.png" width="600" />
@@ -91,23 +91,19 @@ Tässä tehtävässä testasin grep-komennon käyttöä kolmella eri tavalla. Gr
 
 ## e) Pipe
 
-Putki (pipe) on tapa ohjata yhden komennon tuloste suoraan toisen komennon käsiteltäväksi. Esimerkiksi yhden komennon tuottama tieto siirtyy automaattisesti seuraavan komennon käsiteltäväksi.
+Putki (pipe) on tapa ohjata yhden komennon tuloste suoraan toisen komennon käsiteltäväksi. 
 
 <img src="putki.png" width="600" />
 
 ## f) Rauta
 
-Lshw (list hardware) on työkalu, joka näyttää listauksen järjestelmän laitteistosta (raudasta). Aloitin tämän tehtävän asentamalla lshw:n komentorivillä komennolla sudo apt-get install lshw. Tämän jälkeen suoritin komennon sudo lshw -short -sanitize, joka tulosti listauksen virtuaalikoneeni laitteistosta.
+Lshw (list hardware) on komentorivillä käytettävä työkalu, joka näyttää listauksen järjestelmän laitteistosta (raudasta). Aloitin tämän tehtävän asentamalla lshw:n komentorivillä komennolla sudo apt-get install lshw. 
 
 <img src="lshwAsennus.png" width="600" />
+
+Asennuksen jälkeen suoritin komennon sudo lshw -short -sanitize, joka näytti koneeni laitteiston tiedot. Tehtävänä oli myös tulosteen analysointi. Laite toimii VirtualBox-virtuaaliympäristössä. Järjestelmässä on 4 GiB RAM ja 128 KiB BIOS-muistia. Prosessorina on AMD Ryzen 5 4600H. Koneeseen on liitetty CD-ROM-laite ja 21 GB VirtualBox-kovalevy, joka on jaettu kahteen osioon: /dev/sda1 (EXT4) ja /dev/sda2 (swap). Verkkokortti on 82540EM Gigabit Ethernet Controller ja äänikortti on 82801AA AC'97 Audio Controller. Laitteistossa on myös näppäimistö, hiiri, virtapainike ja USB-laitteiden hallinta.
+
 <img src="lshwTuloste.png" width="600" />
-
-H/W path: kertoo laitteen sijainnin tietokoneessa
-Device: laitteen nimi
-Class:  laitteen luokka 
-Description: kuvaus laitteesta
-
-
 
 ## Lähteet: 
 How to use lshw in Linux (with practical example). Luettavissa: https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/. Luettu 27.1.2025.
