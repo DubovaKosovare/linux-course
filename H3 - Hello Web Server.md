@@ -33,12 +33,19 @@ Tässä harjoituksessa testasin, että web-palvelin toimii localhost-osoitteessa
 Tässä harjoituksessa etsin lokista rivit, jotka syntyivät, kun latasin yhden sivun omalta palvelimeltani. Tarkastelin ensimmäistä riviä, joka tulostui, kun annoin komennon sudo grep "localhost" /var/log/apache2/access.log.
 
 - "127.0.0.1" kertoo pyynnön tehneen käyttäjän ip-osoitteen, eli tässä tapauksessa oman koneeni ip-osoitteen.
+
 - "--" tarkoittaa käyttäjätunnusta, mutta koska sitä ei ole määritelty, se jää tyhjäksi.
+
 - "[28/Jan/2025:18:05:05 +0200]" kertoo tarkan ajan, jolloin pyyntö tehtiin, ja aikavyöhykkeen (+0200).
+
 - "GET /icons/openlogo-75.png HTTP/1.1" kertoo, että käyttäjä teki GET-pyynnön tiedostolle "/icons/openlogo-75.png" käyttäen HTTP/1.1 versiota.
+
 - "200" on HTTP-vastauskoodi, joka tarkoittaa, että pyyntö onnistui.
+
 - "6040" kertoo tiedoston koon tavuina (6040 tavua).
+
 - "http://localhost/" kertoo URL-osoitteen, johon pyyntö tehtiin.
+
 - "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0" kertoo, että käyttäjän selain oli Mozilla Firefox ja käyttöjärjestelmä oli Linux.
 
 <img src="loki.png" width="600" />
@@ -69,6 +76,12 @@ Lopuksi suoritin vielä testin sivun validiteetista osoitteessa https://validato
 
 <img src="mywebsite.png" width="600" />
 
+Lisäys:
+
+Kurssilainen huomasi oivasti, että en ollut maininnut raportissani, teinkö validaattorin ehdottamia muutoksia HTML-koodiin vai en. Tein korjaukset ja testasin tiedoston validaattorissa uudelleen, mutta unohdin mainita asian raportissani. Alla vielä kuva uuden testin tuloksista.
+
+<img src="testi6.png" width="600" />
+
 ## f) Curl ja curl-I
 
 Curl on työkalu, jolla voi lähettää ja vastaanottaa tietoa internetissä. Sitä käytetään usein verkkosivujen hakemiseen ja tiedostojen lataamiseen.
@@ -86,9 +99,15 @@ Date: kertoo milloin palvelin lähetti vastauksen. Esimerkiksi Sun, 02 Feb 2025 
 ## Lähteet: 
 
 Apache. Luettavissa: https://www.2kmediat.com/apache/apache_konfiguraatio12.asp. Luettu 29.1.2025.
+
 Curl main page. Luettavissa: https://curl.se/docs/manpage.html. Luettu 2.2.2025.
+
 Curl -i command. Luettavissa: https://apidog.com/articles/curl-i-command/. Luettu: 2.2.2025.
+
 How do I enable/disable a website hosted with Apache? Luettavissa: https://www.linode.com/community/questions/311/how-do-i-enabledisable-a-website-hosted-with-apache#:~:text=To%20enable%20or%20disable%20a%20site%20hosted%20with,respectively.%20Both%20commands%20use%20essentially%20the%20same%20syntax%3A. Luettu: 31.1.2025.
+
 Saive R. How ro Host a Website on an Apache Web Server. Luettavissa: https://www.ubuntumint.com/install-apache-in-linux/. Luettu: 2.2.2025.
+
 Isaiah A. 23.11.2023. How to View and configurate Apache access & error logs. Luettavissa: https://betterstack.com/community/guides/logging/how-to-view-and-configure-apache-access-and-error-logs/. Luettu: 31.1.2025.
+
 Name-based virtual host support. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html. Luettu 29.1.2025. 
