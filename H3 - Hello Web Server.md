@@ -76,7 +76,7 @@ Lopuksi suoritin vielä testin sivun validiteetista osoitteessa https://validato
 
 <img src="mywebsite.png" width="600" />
 
-Lisäys:
+Lisäys 03.02.2025:
 
 Kurssilainen huomasi oivasti, että en ollut maininnut raportissani, teinkö validaattorin ehdottamia muutoksia HTML-koodiin vai en. Tein korjaukset ja testasin tiedoston validaattorissa uudelleen, mutta unohdin mainita asian raportissani. Alla vielä kuva uuden testin tuloksista.
 
