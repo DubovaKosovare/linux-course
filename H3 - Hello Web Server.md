@@ -69,7 +69,7 @@ Tiedostoon kirjoitin HTML5-sivun sisällön, jonka kopioin opettajan ohjeesta "S
 
 <img src="testi4.png" width="600" />
 
-Seuraavaksi testasin sivun toimivuutta selaimessa, ja sivu toimi odotetusti. 
+Seuraavaksi testasin sivun toimivuutta selaimessa ja sivu toimi odotetusti. 
 <img src="Testi5.png" width="600" />
 
 Lopuksi suoritin vielä testin sivun validiteetista osoitteessa https://validator.w3.org
