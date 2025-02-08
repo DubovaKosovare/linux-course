@@ -35,5 +35,37 @@ Root-tunnuksen poiston jälkeen lopputilanne oli seuraava:
 
 <img src="rootinpoisto.png" width="600" />
 
+Jatkoin seuraavaksi tulimuurin käynnistämisellä. Aloitin päivittämällä ohjelmat ja paketit komennolla sudo apt-get update. Kun päivitys oli valmis, asensin palomuurin komennolla sudo apt-get install ufw.
 
+<img src="palomuuri.png" width="600" />
+
+Ennen tulimuurin käynnistämistä tein siihen reiän komennolla sudo ufw allow 22/tcp. Käynnistin tulimuurin lopuksi komennolla sudo ufw enable. 
+
+<img src="palomuuri.png" width="600" />
+
+Lopuksi päivitin palvelimeni ohjelmat komennoilla sudo apt-get update ja sudo apt-get upgrade. Lisäksi suoritin komennon sudo apt-get dist-upgrade, joka päivittää ohjelmat ja paketit kattavammin.
+
+c)
+
+Tässä harjoituksessa asensin virtuaalipalvelimelleni oman web-palvelimen (Apache), ja korvasin sen oman oletussivun. Apachen asennus alkoi komennolla sudo apt-get install apache2. Seuraavaksi käynnistin apachen komennolla sudo systemctl start apache2 ja muokkasin sivua 
+
+Tässä harjoituksessa asensin virtuaalipalvelimelleni oman web-palvelimen (Apache), ja korvasin sen oletussivun. Apachen asennus alkoi komennolla sudo apt-get install apache2. Seuraavaksi käynnistin apachen komennolla sudo systemctl start apache2 ja tarkistin, että palvelin oli käynnissä osoitteella http://94.237.12.170, jolloin näkyi Apache:n oletustestisivu. 
+
+Tämän jälkeen muokkasin sivua. Apache:n oletussivun tiedosto sijaitsee /var/www/html/index.html, ja korvasin sen omalla HTML-sivullani. Avasin tiedoston tekstieditorilla komennolla sudo nano /var/www/html/index.html ja lisäsin siihen oman sisällön.
+
+<img src="apachenasennus2.png" width="600" />
+<img src="apachenasennus3.png" width="600" />
+
+Kun olin tallentanut oman sivuni, kokeilin, että se näkyy julkisesti kirjoittamalla palvelimen IP-osoitteen selaimeen (http://94.237.12.170/).
+
+<img src="Testisivu2.png" width="600" />
+
+Testasin lopuksi sivun toimivuutta vielä omalla puhelimellani. Sivu toimi odotetusti. 
+
+<img src="testipuhelimella.png" width="600" />
+
+### Lähteet:
+
+Karvinen T. Luettavissa: https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/. Luettu 8.2.2025.
+Karvinen T. Luettavissa: https://terokarvinen.com/linux-palvelimet/#h4-maailma-kuulee. Luettu 8.2.2025.
 
