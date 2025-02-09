@@ -1,5 +1,93 @@
 # H4
 
+
+##  x) Teoriasta käytäntöön pilvipalvelimen avulla (h4)
+
+### a) Pilvipalvelimen vuokraus ja asennus:
+
+1. Ensimmäiseksi tulee rekisteröityä palveluntarjoajan sivuille ja syöttää maksutiedot käyttäjätilin vahvistamiseksi. Kun käyttäjätili on valmis, luodaan uusi virtuaalikone esim. seuraavilla asetuksilla: käyttöjärjestelmäksi valitaan Debian 11 x64, valitaan resurssit 1 vCPU, 1 GB RAM, 25 GB SSD, datakeskuksen tulee olla mahdollisimman lähellä käyttäjiä (esim. Amsterdam) ja kirjautumistavaksi voi valita vahvan salasanan tai SSH-avaimen.
+2. Palvelin luodaan ja palveluntarjoaja antaa sille julkisen IP-osoitteen, jonka avulla palvelimeen voi muodostaa yhteyden.
+3. Seuraavaksi hankitaan domainnimi esim. Namecheapin kautta. Rekisteröitymisen jälkeen hallintapaneelista tulee poistaa automaattisesti luodut A Record- ja CNAME Record -tietueet. Domainin ohjaaminen palvelimeen tehdään lisäämällä uudet A Record -merkinnät, joissa arvoksi (Value) asetetaan palvelimen IP-osoite. TTL-arvoksi (Time-To-Live) suositellaan 5 minuuttia, jotta muutokset päivittyvät nopeasti.
+4. Palvelin on valmiina käyttöön.
+
+### d) Palvelin suojaan palomuurilla
+
+Virtuaalipalvelimen suojaamiseksi on tärkeää ottaa käyttöön palomuuri. Palomuuri aktivoidaan seuraavasti: 
+
+1. Muodostetaan ssh-yhteys palvelimeen käyttämällä sen ip-osoitetta. Tämä tapahtuu komentorivillä komennolla ssh root@PalvelimenIp-osoite
+Yhteyttä luodessa järjestelmä kysyy varmistuksen, jonka jälkeen syötetään palvelimelle määritetty salasana. Kun kirjautuminen onnistuu, palvelin on valmis jatkotoimenpiteisiin.
+2. Tarkistetaan saatavilla olevat päivitykset komennolla sudo apt-get update
+3. Asennetaan palomuuri (UFW – Uncomplicated Firewall) komennolla sudo apt-get install ufw
+4. Jotta SSH-yhteys säilyy palomuurin käyttöönoton jälkeen, avataan sille tarvittava portti (22/tcp) komennolla sudo ufw allow 22/tcp
+5. Lopuksi otetaan palomuuri käyttöön komennolla sudo ufw enable. Tämän jälkeen palvelimen tietoliikennettä suojataan palomuurilla, joka estää tarpeettomat yhteydet ja sallii vain sallitut liikennemuodot.
+
+### e) Kotisivut palvelimelle
+
+Seuraavaksi asennetaan virtuaalipalvelimelle Apache-webpalvelin, korvataan testisivu, ja luodaan käyttäjälle toimiva kotisivu Internetiin.
+
+1. Uuden käyttäjän luominen komennolla sudo adduser käyttäjänimi.
+2. Annetaan pääkäyttäjäoikeudet komennolla sudo adduser käyttäjänimi ja määritetään vahva salasana.
+3. Uuden käyttäjän tunnukset testataan avaamalla SSH-yhteys palvelimeen komennolla ssh käyttäjänimi@PalvelimenIp-osoite
+4. Päivitetään palvelin komennolla sudo apt-get update
+5. Lukitaan Root-käyttäjä komennolla sudo usermod --lock root
+6. Testataan domainin reitityksen toimivuus tarkistettiin komennolla ping oma-domain.fi
+7. Palvelin päivitetään ennen web-palvelimen asennusta komennoilla sudo apt-get update, sudo apt-get upgrade ja sudo apt-get dist-upgrade
+8. Asennetaan Apache-webpalvelin komennolla sudo apt-get install apache2
+9. Tarkistetaan, että palvelimen tila on aktiivinen komennolla sudo systemctl status apache2
+10. Määritellään palomuurin asetukset komennolla sudo ufw allow 80/tcp
+11. Korvataan Apachen testisivu komennolla echo "Hello world!" | sudo tee /var/www/html/index.html
+12. Käyttäjäkohtaisia sivuja varten aktivoidaan userdir-moduuli ja käynnistettiin Apache uudelleen komennoilla sudo a2enmod userdir ja sudo service apache2 restart
+13. Käyttäjälle luodaan kotihakemistoon julkinen hakemisto komennolla mkdir -p /home/käyttäjänimi/public_html
+14. Testataan selaimessa, että hakemisto näkyy osoitteessa oma-domain.fi/~käyttäjänimi
+15. Tekstitiedostoja muokataan micro-editorilla, joka voidaan asentaa komennolla sudo apt-get install micro
+16. Siirrytään käyttäjän julkiseen hakemistoon ja luodaan HTML-tiedosto komennoilla cd /home/käyttäjänimi/public_html ja micro index.html
+17. Kirjoitetaan tiedostoon HTML-koodi, tallennetaan se ja suljetaan editori
+18. Lopuksi kotisivujen näkyvyys testataan selaimella.
+
+### f) Palvelimen ohjelmien päivitys
+
+1. Palvelimen ohjelmat päivitetään avaamalla SSH-yhteys ja suorittamalla komennot sudo apt-get update, sudo apt-get upgrade ja sudo apt-get dist-upgrade  
+2. Palvelimen kirjautumislokeja tutkitaan komennolla sudo less /var/log/auth.log | grep log. Lokeista löytyneen epäilyttävän tapahtuman tarkempi analysointi tehdään esim. komennolla sudo less /var/log/auth.log | grep 10540
+
+
+## x) First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS
+
+Virtuaalipalvelimen käyttöönotto alkaa seuraavilla ohjeilla:
+1. Luodaan tili DigitalOceanissa, lisätään maksukortti ja/tai alennuskoodi. 
+2. Luodaan uusi virtuaalipalvelin. Käyttöjärjestelmäksi valitaan Ubuntu 16.04 LTS. Datakeskuksen tulee sijaita lähellä asiakkaitasi, joten valitsemme Euroopan alueen. Kirjautumistavaksi valitaan SSH-avain, tai salasana, mikäli et osaa luoda ssh-avainta.
+3. Tarkistetaan palvelimen IP-osoite.
+4. Kirjaudutaan palvelimeen ensimmäistä kertaa käyttäen SSH:ta root-käyttäjänä. Tämä tapahtuu komennolla ssh root@10.0.0.1
+5. Asetetaan hyvä salasana
+
+Palvelimen palomuurin asetukset on määritettävä oikein. Tämä tehdään seuraavalla tavalla:
+1. Määritetään palomuurin asetukset komennoilla sudo ufw allow 22/tcp ja sudo ufw enable
+
+Palvelimelle luodaan sudo-käyttäjä seuraavilla ohjeilla:
+1. Luodaan uusi käyttäjä (esim. tero) komennoilla sudo adduser tero, sudo adduser tero sudo, sudo adduser tero adm ja sudo adduser tero admin
+2. Testataan kirjautuminen uuteen käyttäjään toisessa terminaalissa ennen kuin suljetaan root-käyttäjän istunto
+3. Muodostetaan ssh-yhteyd virtuaalipalvelimelle komennolla ssh tero@tero.example.com
+
+Suljetaan root-käyttäjä:
+1. Suljetaan root-käyttäjä komennolla sudo usermod --lock root
+2. Estetään root-kirjautuminen SSH:ssa komennolla sudoedit /etc/ssh/sshd_config. Muokataan tiedostoa ja varmistetaan, että rivillä PermitRootLogin on arvo no.
+3. Käynnistetään SSH-palvelu uudelleen komennolla sudo service ssh restart
+
+Ohjelmien päivitys:
+1. Päivitetään ohjelmat komennoilla sudo apt-get update ja sudo apt-get upgrade
+
+Virtuaalipalvelimen käyttö:
+Huom! Asentaessasi julkisen palvelimen, kuten Apache, muista avata palomuurissa tarvittavat portit komennolla sudo ufw allow 80/tcp
+Nyt palvelin on valmiina käyttöön.
+
+Julkisen DNS-nimen lisääminen NameCheapissa:
+1. Lisätään verkkotunnus, jotta se on muille helpompi muistaa. Nimen vuokraaminen voidaan tehdä NameCheapissä tai Gandissa. Jos käyttää GitHub Education -pakettia, voi saada ehkä ilmaiseksi .me-verkkotunnuksen. Ohjeet verkkotunnuksen ohjaamiseen DigitalOceanin palvelimeen löytyvät NameCheapista. Lisätään uusi A-tietue (esim. "@").
+2. Testataan verkkotunnuksen toimivuutta käyttämällä komentoa: host example.com dns1.registrar-servers.com
+3. Käytetään Firefoxia vain, kun verkkotunnus on toiminut, jotta vanha nimi ei jää välimuistiin.
+
+### Lähteet:
+
+Lehto S. Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu: 9.2.2025
+
 a)
 
 Tässä harjoituksessa tarkoituksena oli vuokrata oma virtuaalipalvelin. Päätin vuokrata palvelimen UpCloudista. Ihan ensimmäisenä loin Upcloudissa käyttäjätilin. 
