@@ -1,4 +1,4 @@
-# H4
+# H4 - Maailma kuulee
 
 
 ##  x) Teoriasta käytäntöön pilvipalvelimen avulla (h4)
@@ -14,8 +14,7 @@
 
 Virtuaalipalvelimen suojaamiseksi on tärkeää ottaa käyttöön palomuuri. Palomuuri aktivoidaan seuraavasti: 
 
-1. Muodostetaan ssh-yhteys palvelimeen käyttämällä sen ip-osoitetta. Tämä tapahtuu komentorivillä komennolla ssh root@PalvelimenIp-osoite
-Yhteyttä luodessa järjestelmä kysyy varmistuksen, jonka jälkeen syötetään palvelimelle määritetty salasana. Kun kirjautuminen onnistuu, palvelin on valmis jatkotoimenpiteisiin.
+1. Muodostetaan ssh-yhteys palvelimeen käyttämällä sen ip-osoitetta. Tämä tapahtuu komentorivillä komennolla ssh root@PalvelimenIp-osoite. Yhteyttä luodessa järjestelmä kysyy varmistuksen, jonka jälkeen syötetään palvelimelle määritetty salasana.
 2. Tarkistetaan saatavilla olevat päivitykset komennolla sudo apt-get update
 3. Asennetaan palomuuri (UFW – Uncomplicated Firewall) komennolla sudo apt-get install ufw
 4. Jotta SSH-yhteys säilyy palomuurin käyttöönoton jälkeen, avataan sille tarvittava portti (22/tcp) komennolla sudo ufw allow 22/tcp
@@ -30,7 +29,7 @@ Seuraavaksi asennetaan virtuaalipalvelimelle Apache-webpalvelin, korvataan testi
 3. Uuden käyttäjän tunnukset testataan avaamalla SSH-yhteys palvelimeen komennolla ssh käyttäjänimi@PalvelimenIp-osoite
 4. Päivitetään palvelin komennolla sudo apt-get update
 5. Lukitaan Root-käyttäjä komennolla sudo usermod --lock root
-6. Testataan domainin reitityksen toimivuus tarkistettiin komennolla ping oma-domain.fi
+6. Testataan domainin reitityksen toimivuus komennolla ping oma-domain.fi
 7. Palvelin päivitetään ennen web-palvelimen asennusta komennoilla sudo apt-get update, sudo apt-get upgrade ja sudo apt-get dist-upgrade
 8. Asennetaan Apache-webpalvelin komennolla sudo apt-get install apache2
 9. Tarkistetaan, että palvelimen tila on aktiivinen komennolla sudo systemctl status apache2
@@ -49,6 +48,9 @@ Seuraavaksi asennetaan virtuaalipalvelimelle Apache-webpalvelin, korvataan testi
 1. Palvelimen ohjelmat päivitetään avaamalla SSH-yhteys ja suorittamalla komennot sudo apt-get update, sudo apt-get upgrade ja sudo apt-get dist-upgrade  
 2. Palvelimen kirjautumislokeja tutkitaan komennolla sudo less /var/log/auth.log | grep log. Lokeista löytyneen epäilyttävän tapahtuman tarkempi analysointi tehdään esim. komennolla sudo less /var/log/auth.log | grep 10540
 
+### Lähteet:
+
+Lehto S. Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu: 9.2.2025
 
 ## x) First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS
 
@@ -56,7 +58,7 @@ Virtuaalipalvelimen käyttöönotto alkaa seuraavilla ohjeilla:
 1. Luodaan tili DigitalOceanissa, lisätään maksukortti ja/tai alennuskoodi. 
 2. Luodaan uusi virtuaalipalvelin. Käyttöjärjestelmäksi valitaan Ubuntu 16.04 LTS. Datakeskuksen tulee sijaita lähellä asiakkaitasi, joten valitsemme Euroopan alueen. Kirjautumistavaksi valitaan SSH-avain, tai salasana, mikäli et osaa luoda ssh-avainta.
 3. Tarkistetaan palvelimen IP-osoite.
-4. Kirjaudutaan palvelimeen ensimmäistä kertaa käyttäen SSH:ta root-käyttäjänä. Tämä tapahtuu komennolla ssh root@10.0.0.1
+4. Kirjaudutaan palvelimeen ensimmäistä kertaa käyttäen SSH:ta root-käyttäjänä. Tämä tapahtuu komennolla ssh root@PalvelimenIp
 5. Asetetaan hyvä salasana
 
 Palvelimen palomuurin asetukset on määritettävä oikein. Tämä tehdään seuraavalla tavalla:
@@ -76,6 +78,7 @@ Ohjelmien päivitys:
 1. Päivitetään ohjelmat komennoilla sudo apt-get update ja sudo apt-get upgrade
 
 Virtuaalipalvelimen käyttö:
+
 Huom! Asentaessasi julkisen palvelimen, kuten Apache, muista avata palomuurissa tarvittavat portit komennolla sudo ufw allow 80/tcp
 Nyt palvelin on valmiina käyttöön.
 
@@ -86,34 +89,45 @@ Julkisen DNS-nimen lisääminen NameCheapissa:
 
 ### Lähteet:
 
-Lehto S. Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu: 9.2.2025
+Karvinen T. Luettavissa: https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/. Luettu 8.2.2025.
 
-a)
+## a)
 
-Tässä harjoituksessa tarkoituksena oli vuokrata oma virtuaalipalvelin. Päätin vuokrata palvelimen UpCloudista. Ihan ensimmäisenä loin Upcloudissa käyttäjätilin. 
+Tässä harjoituksessa tarkoituksena oli vuokrata oma virtuaalipalvelin. Päätin vuokrata palvelimen UpCloudista. Ihan ensimmäisenä loin Upcloudissa käyttäjätilin ja lisäsin maksukortin.
 
 <img src="Accountverification.png" width="600" />
 
-Seuraavaksi aloitin virtuaalipalvelimen käyttöönoton ja määrittelin siihen liittyvät asetukset. Aluksi valitsin palvelimen sijainniksi Helsingin. Plan-osiossa valitsin UpCloudin edullisimman palvelinpaketin, joka sisältää 1-core prosessoriytimen, 1 GB muistia ja 10 GB tallennustilaa hintaan 3 €/kk. Jätin automaattiset varmuuskopiot -osion sekä verkkoyhteydet -osion oletusasetuksille. Käyttöjärjestelmäksi valitsin Debian GNU/Linux 12 (Bookworm). Kirjautumistavaksi valitsin SSH-avaimen.
+Seuraavaksi aloitin virtuaalipalvelimen käyttöönoton ja määrittelin siihen liittyvät asetukset. Palvelimen sijainniksi valitsin Helsingin. 
 
 <img src="Sijainti.png" width="600" />
+
+Plan-osiossa valitsin UpCloudin edullisimman palvelinpaketin, joka sisältää 1-core prosessoriytimen, 1 GB muistia ja 10 GB tallennustilaa hintaan 3 €/kk. 
+
 <img src="Plan.png" width="600" />
+
+ Jätin automaattiset varmuuskopiot -osion sekä verkkoyhteydet -osion oletusasetuksille. 
+ 
 <img src="verkkoyhteys.png" width="600" />
+
+Käyttöjärjestelmäksi valitsin Debian GNU/Linux 12 (Bookworm). 
+
 <img src="käyttöjärjestelmä.png" width="600" />
 
-Seuraavaksi oli aika luoda ssh-avain. Olen aiemmin asentanut OpenSSH-ohjelma, joten minun ei tarvinnut tehdä mitään asennustoimia. Aloitin suoraan komennolla ssh-keygen, joka generoi uuden ssh-avaimen. Avain koostuu julkisesta ja yksityisestä osasta, ja ne tallennettiin oletuksena hakemistoon /home/kosovare/.ssh/. Julkinen avain tallennettiin tiedostoon id_rsa.pub ja yksityinen avain tiedostoon id_rsa. Lopuksi hain julkisen ssh-avaimen micro-tekstieditorissa ja liitin sen UpCloudin käyttöliittymään.
-
-  micro $HOME/.ssh/id_rsa.pub # -> tällä löytyi 
-
-<img src="ssh.png" width="600" />
-<img src="sshkeygen.png" width="600" />
-  
+ Kirjautumistavaksi valitsin SSH-avaimen. Huom. lisäsin SSH-avaimen UpCloudiin vasta seuraavan kohdan jälkeen, kun olin luonut sen komentorivillä. 
+ 
 <img src="shhonnistui.png" width="600" />
+
+Seuraavaksi oli aika luoda ssh-avain. Olen aiemmin asentanut OpenSSH-ohjelman, joten minun ei tarvinnut tehdä mitään asennustoimia. Aloitin suoraan komennolla ssh-keygen, joka generoi uuden ssh-avaimen. Avain koostuu julkisesta ja yksityisestä osasta, ja ne tallennettiin oletuksena hakemistoon /home/kosovare/.ssh/. Julkinen avain tallennettiin tiedostoon id_rsa.pub ja yksityinen avain tiedostoon id_rsa. Lopuksi hain julkisen ssh-avaimen micro-tekstieditorissa komennolla micro $HOME/.ssh/id_rsa.pub #, ja liitin sen UpCloudin käyttöliittymään (edellinen kuva).
+
+<img src="sshkeygen.png" width="600" />
+
+Lopuksi klikkasin UpCloudin liittymän vasemmassa alareunassa olevaa "Deploy" painiketta, joka käynnisti virtuaalipalvelimen luomisen ja palvelimen ip-osoite muodostui. 
+
 <img src="verkkopalvelinasennettu.png" width="600" />
 
-b)
+## b)
 
-Tässä harjoituksessa tein virtuaalipavelimellani alkutoimet: suljin root-tunnuksen, laitoin tulimuurin päälle ja päivitin ohjelmat. 
+Tässä harjoituksessa tein virtuaalipavelimellani alkutoimet: suljin root-tunnuksen, laitoin palomuurin päälle ja päivitin ohjelmat. 
 
 Suljin root-tunnuksen opettajan ohjeiden mukaisesti seuraavien vaiheiden avulla:
 
@@ -133,13 +147,11 @@ Ennen tulimuurin käynnistämistä tein siihen reiän komennolla sudo ufw allow 
 
 Lopuksi päivitin palvelimeni ohjelmat komennoilla sudo apt-get update ja sudo apt-get upgrade. Lisäksi suoritin komennon sudo apt-get dist-upgrade, joka päivittää ohjelmat ja paketit kattavammin.
 
-c)
-
-Tässä harjoituksessa asensin virtuaalipalvelimelleni oman web-palvelimen (Apache), ja korvasin sen oman oletussivun. Apachen asennus alkoi komennolla sudo apt-get install apache2. Seuraavaksi käynnistin apachen komennolla sudo systemctl start apache2 ja muokkasin sivua 
+## c)
 
 Tässä harjoituksessa asensin virtuaalipalvelimelleni oman web-palvelimen (Apache), ja korvasin sen oletussivun. Apachen asennus alkoi komennolla sudo apt-get install apache2. Seuraavaksi käynnistin apachen komennolla sudo systemctl start apache2 ja tarkistin, että palvelin oli käynnissä osoitteella http://94.237.12.170, jolloin näkyi Apache:n oletustestisivu. 
 
-Tämän jälkeen muokkasin sivua. Apache:n oletussivun tiedosto sijaitsee /var/www/html/index.html, ja korvasin sen omalla HTML-sivullani. Avasin tiedoston tekstieditorilla komennolla sudo nano /var/www/html/index.html ja lisäsin siihen oman sisällön.
+Tämän jälkeen muokkasin sivua. Apache:n oletussivun tiedosto sijaitsee /var/www/html/index.html, ja korvasin sen omalla HTML-sivullani. Avasin tiedoston tekstieditorilla komennolla sudo nano /var/www/html/index.html ja lisäsin siihen oman sisällön. Lisäksi avasin palomuurissa portin 80 komennolla sudo ufw allow 80/tcp.
 
 <img src="apachenasennus2.png" width="600" />
 <img src="apachenasennus3.png" width="600" />
