@@ -34,7 +34,18 @@ c)
 
 d)
 
+<img src="linuxkurssi.png" width="600" />
+<img src="linuxkurssisivut.png" width="600" />
+<img src="example.png" width="600" />
+<img src="examplesivut.png" width="600" />
 
+e)
+
+- kosovare@debian-1cpu-1gb-fi-hel2:~$ sudo apt install dnsutils -y
+
+<img src="hostdig1.png" width="600" />
+<img src="hostdig2.png" width="600" />
+<img src="hostdig3.png" width="600" />
 
 Lähteet: https://susannalehto.fi/2022/selainpohjainen-ohjelma-djangolla-h5/
 https://stackoverflow.com/questions/17898026/how-to-use-href-attribute-in-lists-ol-ul-using-html5
