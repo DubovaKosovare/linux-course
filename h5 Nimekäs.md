@@ -6,7 +6,7 @@ Aloitin harjoituksen luomalla käyttäjätunnuksen Namecheapissä ja vuokraamall
 
 <img src="nimi.png" width="600" />
 
-Nimen vuokraamisen jälkeen ohjasin domainin kosovaredubova.online DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä onnistui Namecheapin hallintapaneelin Advanced DNS -välilehdellä lisäämällä kaksi A-tietuetta, jotka osoittavat virtuaalipalvelimeni IP-osoitteeseen 94.237.11.122. Lopukso tallensin muutokset.
+Nimen vuokraamisen jälkeen ohjasin domainin kosovaredubova.online DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä onnistui Namecheapin hallintapaneelin Advanced DNS -välilehdellä lisäämällä kaksi A-tietuetta, jotka osoittavat virtuaalipalvelimeni IP-osoitteeseen 94.237.11.122. Lopuksi tallensin muutokset.
 
 <img src="nimiDNS.png" width="600" />
 
@@ -72,6 +72,8 @@ Testasin kotisivuni ja linkkien toimivuutta avaamalla osoitteen http://kosovared
 <img src="blogi.png" width="600" />
 
 ### d) Alidomain
+
+Tässä tehtävässä loin kaksi alidomainia päädomainilleni (kosovaredubova.online). Tein tämän Namecheapin hallintapaneelissa Advanced dns -välilehdellä. Loin alidomainit "linuxkurssi" ja "example" lisäämällä a-tietueet, joissa kirjoitin "host"-kenttään alidomainin nimen ("linuxkurssi" ja "example") ja "value"-kenttään palvelimeni ip-osoitteen (94.237.11.122). Seuraavaksi jatkoin komentokehotteella ja loin molemmille alidomaineille konfiguraatiotiedostot nimeltään linuxkurssi.kosovaredubova.online.conf ja example.kosovaredubova.online.conf. Lopuksi testasin alidomainien toimivuutta avaamalla osoitteet http://linuxkurssi.kosovaredubova.online ja http://example.kosovaredubova.online, ja molemmat alidomainit toimivat odotetusti.
 
 <img src="linuxkurssi.png" width="600" />
 <img src="linuxkurssisivut.png" width="600" />
