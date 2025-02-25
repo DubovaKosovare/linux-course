@@ -80,6 +80,8 @@ Tässä tehtävässä loin kaksi alidomainia päädomainilleni (kosovaredubova.o
 <img src="example.png" width="600" />
 <img src="examplesivut.png" width="600" />
 
+Lähteet: https://stackoverflow.com/questions/18342208/setting-up-a-subdomain-with-apache-on-linux
+
 ### e) Host ja dig -komennot
 
 Tässä tehtävässä oli tarkoituksena harjoitella "dig" ja "host" -komentojen käyttöä domainien dns-tietojen tutkimiseen sekä vertailla niiden tuottamia tuloksia. 
