@@ -1,28 +1,40 @@
 # H5 Nimekäs
 
-a) Nimi
+### a) Nimi
 
-Aloitin tämän harjoituksen hankkimalla domainin "kosovaredubova.online" Namecheapistä.
+Aloitin harjoituksen luomalla käyttäjätunnuksen Namecheapissä ja vuokraamalla domainin "kosovaredubova.online" vuodeksi. Prosessi oli selkeä, se onnistui helposti seuraamalla Namecheapin ohjeita.
 
 <img src="nimi.png" width="600" />
 
-Seuraavaksi siirryin "Advanced DNS" -välilehdelle ja lisäsin kaksi A-tietuetta, joiden avulla ohjasin domainin kosovaredubova.online osoittamaan virtuaalipalvelimeni IP-osoitteeseen 94.237.11.122.
+Nimen vuokraamisen jälkeen ohjasin domainin kosovaredubova.online DigitalOceanilta hankitulle virtuaalipalvelimelle. Tämä onnistui Namecheapin hallintapaneelin Advanced DNS -välilehdellä lisäämällä kaksi A-tietuetta, jotka osoittavat virtuaalipalvelimeni IP-osoitteeseen 94.237.11.122. Lopukso tallensin muutokset.
 
 <img src="nimiDNS.png" width="600" />
 
 Lähteet: https://susannalehto.fi/2022/selainpohjainen-ohjelma-djangolla-h5/
 
-b) Based
+
+### b) Based
+
+Tässä tehtävässä asensin DigitalOceanilta hankitulle virtuaalikoneelle Apache-webpalvelimen, korvasin testisivun ja määritin käyttäjälleni "kosovare" oikeudet ylläpitää kotisivua  ilman pääkäyttäjän oikeuksia. 
+
+Aloitin luomalla uuden käyttäjän komennolla sudo adduser kosovare. Tämän jälkeen lisäsin käyttäjän sudo-ryhmään komennolla sudo adduser kosovare sudo. Seuraavaksi testasin käyttäjätunnuksia avaamalla SSH-yhteyden virtuaalipalvelimeen komennolla ssh kosovare@94.237.11.122. Päivitin ohjelmat ajan tasalle komennolla sudo apt-get update. Lukitsin root-käyttäjän komennolla sudo usermod --lock root. 
+
+Seuraavaksi asensin virtuaalipalvelimelle päivitykset komennolla sudo apt-get update,  sudo apt-get upgrade ja sudo apt-get dist-upgrade. Tämän jälkeen asensin Apache-webpalvelimen komennolla $ sudo apt-get install apache2, ja tarkistin, että se on käynnissä ja toimii komennolla sudo systemctl status apache2. 
+
+Lisäsin vielä palomuurin sääntöjä avatakseni tarvittavan portin komennoilla sudo ufw allow 80/tcp ja sudo ufw allow 80/tcp. Kun testasin selaimessa, Apachen testisivu oli näkyvissä. 
 
 <img src="domainsivu1.png" width="600" />
 
+Seuraavaksi korvasin testisivun "Kosovaren!" -viestillä komennolla  echo "Kosovaren sivut!" | sudo tee /var/www/html/index.html.
+
 <img src="domainsivu2.png" width="600" />
 
-Lähteet: https://susannalehto.fi/2022/selainpohjainen-ohjelma-djangolla-h5/
+Lopuksi otin käyttöön userdir-moduulin komennolla sudo a2enmod userdir, jotta käyttäjä voisi luoda ja ylläpitää kotisivujaan ilman pääkäyttäjän oikeuksia ja käynnistin apachen komennolla  sudo service apache2 restart.
+
+Lähteet: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/
 
 c)
 
-<img src="domainsivu3.png" width="600" />
 <img src="domainsivu4.png" width="600" />
 <img src="kotisivu1.png" width="600" />
 <img src="kotisivu2.png" width="600" />
