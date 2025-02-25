@@ -33,18 +33,45 @@ Lopuksi otin käyttöön userdir-moduulin komennolla sudo a2enmod userdir, jotta
 
 Lähteet: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/
 
-c)
+### c) Kotisivu
 
-<img src="domainsivu4.png" width="600" />
-<img src="kotisivu1.png" width="600" />
-<img src="kotisivu2.png" width="600" />
-<img src="kotisivu3.png" width="600" />
+Jatkoin seuraavaan tehtävään, jossa minun piti luoda kolme erillistä alasivua (index.html, blog.html, projects.html) kotisivulleni. Sivujen tuli olla validia html:ää ja niiden piti linkittää toisiinsa. Aloitin luomalla ja muokkaamalla nämä html-tiedostot hakemistossa /home/kosovare/public_html/ käyttäen nano-editoria. Käytin seuraavia komentoja tiedostojen luomiseen:
+
+nano /home/kosovare/public_html/index.html
+
+nano /home/kosovare/public_html/blog.html
+
+nano /home/kosovare/public_html/projects.html
+
 <img src="kotisivujenkoodaus.png" width="600" />
+
+Tiedoston luomisen jälkeen muokkasin html-tiedostoja.
+
+index.html-tiedosto:
+
+<img src="kotisivu1.png" width="600" />
+
+projects.html-tiedosto:
+
+<img src="kotisivu2.png" width="600" />
+
+blog.html-tiedosto: 
+
+<img src="kotisivu3.png" width="600" />
+
+Tiedostojen sisällön muokkaamisen jälkeen tarkistin Apache-palvelimen tilan ja käynnistin sen uudelleen seuraavilla komennoilla:
+
+sudo systemctl status apache2
+
+sudo systemctl start apache2
+
+Testasin kotisivuni ja linkkien toimivuutta avaamalla osoitteen http://kosovaredubova.online, ja sivu sekä linkit toimivat oikein.
+
+<img src="Etusivu.png" width="600" />
 <img src="projekti.png" width="600" />
 <img src="blogi.png" width="600" />
-<img src="Etusivu.png" width="600" />
 
-d)
+### d) Alidomain
 
 <img src="linuxkurssi.png" width="600" />
 <img src="linuxkurssisivut.png" width="600" />
