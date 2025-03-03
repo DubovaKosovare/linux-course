@@ -46,8 +46,7 @@ Verkkosivut toimivat odotetusti:
 
 <img src="toimii.png" width="600" />
 
-
-
+Tämän jälkeen kohtasin haasteita tehtävän tekemisessä, minkä vuoksi en ehtinyt vielä tehdä sitä loppuun. Täydennän raporttia sitä mukaan, kun edistyn tehtävässä.
 
 
 
