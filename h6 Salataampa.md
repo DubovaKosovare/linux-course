@@ -30,21 +30,24 @@ LoadModule ssl_module modules/mod_ssl.so
 
 Listen 443
 
-<VirtualHost *:443>
-
-    ServerName www.example.com
-    
-    SSLEngine on
-    
-    SSLCertificateFile "/polku/www.example.com.cert"
-    
-    SSLCertificateKeyFile "/polku/www.example.com.key"
-
-</VirtualHost>
+<img src="peruskonf.png" width="600" />
 
 Lähde: https://httpd.apache.org/docs/2.4/ssl/ssl_howto.html#configexample
 
-## a)
+## a) Let's
+ 
+Tässä tehtävässä tavoitteena oli hankkia ja asentaa ilmainen TLS-sertifikaatti Let's Encryptilta palvelimelleni sekä varmistaa sen toimivuus. Aluksi varmistin, että verkkosivuni toimii, ja käynnistin tarvittavat palvelut.
+
+Potkaisin demonia seuraavilla komennoilla: 
+
+<img src="potkaisedemonia.png" width="600" />
+
+Verkkosivut toimivat odotetusti:
+
+<img src="toimii.png" width="600" />
+
+
+
 
 
 
