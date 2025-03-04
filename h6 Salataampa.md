@@ -46,8 +46,66 @@ Verkkosivut toimivat odotetusti:
 
 <img src="toimii.png" width="600" />
 
-Tämän jälkeen kohtasin haasteita tehtävän tekemisessä, minkä vuoksi en ehtinyt vielä tehdä sitä loppuun. Täydennän raporttia sitä mukaan, kun edistyn tehtävässä.
+Jatkoin tehtävää asentamalla Legon komennolla sudo apt-get install lego, ja loin lego-hakemiston komennolla mkdir lego. 
 
+Seuraavaksi loin testisertifikaatin testipalvelimella seuraavalla komennolla:
 
+lego --server=https://acme-staging-v02.api.letsencrypt.org/directory \
+--accept-tos \
+--email="bhh130@myy.haaga-helia.fi" \
+--domains="kosovaredubova.online" --domains="www.kosovaredubova.online" \
+--http --http.webroot="/home/kosovare/public_sites/kosovaredubova.online/" \
+--path="~/.lego" \
+--pem run
+
+<img src="legosalaus.png" width="600" />
+
+Seuraavassa kohdassa otin käyttöön salauksen omalle sivustolleni (kosovaredubova.online). Aloitin nimeämällä aiemmin luomani lego-kansion uudelleen nimellä old-lego ja loin uuden lego-kansion.
+
+<img src="uusilego.png" width="600" />
+
+Uuteen kansioon tallensin verkkosivuni Let's Encryptin SSL-sertifikaatit. Loin sertifikaatit ajamalla seuraavan komennon:
+
+lego --accept-tos \
+--email="bhh130@myy.haaga-helia.fi" \
+--domains="kosovaredubova.online" --domains="www.kosovaredubova.online" \
+--http --http.webroot="/home/kosovare/public_sites/kosovaredubova.online/" \
+--path="/home/kosovare/lego/" \
+--pem run
+ 
+<img src="legosalauskaksi.png" width="600" />
+
+Sertifikaattien luomisen jälkeen otin käyttöön Apache-palvelimen SSL-moduulin komennolla sudo a2enmod ssl, ja käynnistin Apachen uudelleen komennolla sudo systemctl restart apache2.
+
+Jatkoin tehtävää muokkaamalla kosovaredubova.online.conf-tiedostoa. Siirryin tiedoston muokkaustilaan komennolla sudo nano /etc/apache2/sites-available/kosovaredubova.online.conf ja lisäsin seuraavat tiedot:
+
+<img src="confvaarin.png" width="600" />
+
+Palasin komentoriville ja yritin käynnistää Apache-palvelimen uudelleen komennolla sudo systemctl restart apache2 ja sain seuraavan virheilmoituksen:
+
+<img src="confvaara.png" width="600" />
+
+Arvasin, että olen tehnyt jonkin virheen conf-tiedostossa, joten palasin tiedostoon tarkistamaan sen sisällön. Huomasin, että olin aiemmin muokatessani vahingossa poistanut ensimmäisen <VirtualHost>-lohkon </VirtualHost>-tagin. Lisäsin puuttuvan tagin lohkojen väliin, tallensin tiedoston ja palasin komentoriville. Käynnistin Apache-palvelimen onnistuneesti komennolla sudo systemctl restart apache2.
+
+Seuraavaksi tein palomuuriin reiän 443 komennolla sudo ufw allow 443/tcp ja varmistin, että se oli oikein asetettu komennolla sudo ufw status.
+
+<img src="palomuuri.png" width="600" />
+
+Seuraavaksi testasin sivuni toimivuutta avaamalla sen selaimessa osoitteella "https://kosovaredubova.online". Sivusto toimi odotetusti.
+
+<img src="httpstoimii.png" width="600" />
+
+## A-rating
+
+Tässä harjoituksessa testasin oman sivuni TLS:n SSL Labsin tarkistustyökalulla. Syötin hakuun domainin "kosovaredubova.online" ja sain seuraavan tuloksen:
+
+<img src="SSLreport.png" width="600" />
+
+Salaus läpäisi siis testit!
+
+Lähteet:
+
+https://github.com/gianglex/Linux-palvelimet/blob/main/h6/h6-salataampa.md
+https://terokarvinen.com/linux-palvelimet/#h6-salataampa
 
 
