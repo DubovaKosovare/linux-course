@@ -58,3 +58,45 @@ https://www.jcchouinard.com/create-python-script-from-terminal/
 https://stackify.com/install-ruby-on-ubuntu-everything-you-need-to-get-going/#:~:text=Install%20Ruby%20on%20Ubuntu%20with%20APT%201%20Step,step%20is%20mostly%20for%20our%20own%20edification.%20
 
 https://flatironschool.com/blog/building-your-first-command-line-application-in-ruby/
+
+## c) Komento kaikille käyttäjille
+
+Tässä harjoituksessa tavoitteena oli luoda uusi komento Linuxiin siten, että kaikki käyttäjät voivat käyttää sitä. Toteutin tämän aiemmin luomastani Bash-skriptistä (myscript.sh).
+
+Kopioin skriptin järjestelmän hakemistoon komennolla sudo cp myscript.sh /usr/local/bin/myscript.
+
+<img src="komentotoimii.png" width="600" />
+
+Lopuksi testasin komennon toimivuuden. Suoritin komennon myscript, ja se tulosti odotetusti "Hei maailma" sekä nykyisen päivämäärän.
+
+<img src="komentotoimii2.png" width="600" />
+
+Lähteet: 
+
+https://terokarvinen.com/2007/12/04/shell-scripting-4/
+
+## d) Vanha laboratorioharjoitus
+
+Tässä harjoituksessa ratkaisin vanhan laboratorioharjoituksen soveltuvin osin. Valitsin vuoden 2024 kevään kurssin laboratorioharjoituksen. Tein tehtävät kurssilla käyttämälläni virtuaalikoneella, en asentanut uutta virtuaalikonetta tehtävää varten. Aloitin harjoituksen tehtävästä d. 
+
+### d) Howdy
+
+Aloitin tehtävän luomalla nano-tiedosto "howdy.sh". Luotuani tiedoston kirjoitin siihen seuraavan sisällön: 
+
+<img src="howdy1.png" width="600" />
+
+Tallensin tiedoston ja palasin takaisin komentoriville ja ajoin komennon chmod +x howdy.sh. 
+
+<img src="howdy2.png" width="600" />
+
+Tämän jälkeen testasin skriptin toimivuutta ajamalla komennon ./howdy.sh.
+
+<img src="howdy3.png" width="600" />
+
+Komento toimi odotetusti, joten jatkoin tehtävää. Seuraavaksi tein komennosta kaikille käyttäjille käytettävän komennolla sudo cp howdy.sh /usr/local/bin/howdy. Komentorivi pyysi minua syöttämään salasanan. Syötin salasanan ja lopuksi ajoin komennon howdy testatakseni komennon toimivuuden. Komento toimi odotetusti. 
+
+<img src="howdy4.png" width="600" />
+
+Lähteet: 
+
+https://terokarvinen.com/2024/arvioitava-laboratorioharjoitus-2024-linux-palvelimet/
