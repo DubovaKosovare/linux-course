@@ -85,17 +85,19 @@ Aloitin tehtävän luomalla nano-tiedosto "howdy.sh". Luotuani tiedoston kirjoit
 
 <img src="howdy1.png" width="600" />
 
-Tallensin tiedoston ja palasin takaisin komentoriville ja ajoin komennon chmod +x howdy.sh. 
+Tallensin tiedoston, palasin komentoriville ja tein siitä suoritettavan komennolla chmod +x howdy.sh. 
 
 <img src="howdy2.png" width="600" />
 
-Tämän jälkeen testasin skriptin toimivuutta ajamalla komennon ./howdy.sh.
+Sen jälkeen testasin skriptin toimivuuden suorittamalla komennon ./howdy.sh.
 
 <img src="howdy3.png" width="600" />
 
-Komento toimi odotetusti, joten jatkoin tehtävää. Seuraavaksi tein komennosta kaikille käyttäjille käytettävän komennolla sudo cp howdy.sh /usr/local/bin/howdy. Komentorivi pyysi minua syöttämään salasanan. Syötin salasanan ja lopuksi ajoin komennon howdy testatakseni komennon toimivuuden. Komento toimi odotetusti. 
+Komento toimi kuten odotin, joten jatkoin tehtävää. Seuraavaksi tein siitä kaikkien käyttäjien käytettävissä olevan suorittamalla komennon sudo cp howdy.sh /usr/local/bin/howdy. Komentorivi pyysi salasanaa, jonka syötin. Lopuksi testasin komennon ajamalla komennon howdy.
 
 <img src="howdy4.png" width="600" />
+
+## e) 
 
 Lähteet: 
 
