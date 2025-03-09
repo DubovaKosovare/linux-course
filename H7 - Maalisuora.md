@@ -131,4 +131,77 @@ Tallensin tiedoston (Ctrl + S) ja poistun editorista. Tämän jälkeen päivitin
 
 Lähteet: 
 
+https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=name%20based%20virtual%20hosts
+
 https://terokarvinen.com/2024/arvioitava-laboratorioharjoitus-2024-linux-palvelimet/
+
+## f)
+
+Tässä harjoituksessa oli kolme osaa: ssh-palvelimen asennus, uuden käyttäjän luominen ja ssh-kirjautumisen automatisointi julkisen avaimen menetelmällä niin, että ei tarvitse salasanoja, kun kirjaudun sisään.
+
+Aloitin tehtävän päivittämällä paketit komennolla sudo apt-get update ja tekemällä palomuuriin reiät komennoilla sudo ufw allow 22/tcp, sudo ufw enable, sudo ufw allow 80/tcp ja sudo ufw enable.
+
+<img src="palomuurinasetukset.png" width="600" />
+
+Tämän jälkeen asensin ssh-palvelimen komennolla sudo apt-get -y install openssh-client. Seuraavaksi loin julkisen ja yksityisen avaimen komennolla ssh-keygen.
+
+<img src="sshharjoitus.png" width="600" />
+
+<img src="sshharjoitus2.png" width="600" />
+
+Tarkistin, että avaimet löytyvät kotihakemistosta komennolla cd /home/harjoitus/.ssh/ ja ls. Avaimet löytyivät ja ensimmäinen osio on valmis. 
+
+<img src="sshharjoitus3.png" width="600" />
+
+Tarkistin vielä, että ssh-yhteys on päällä ja toimii komennolla systemctl status ssh.
+
+<img src="sshharjoitus4.png" width="600" />
+
+Seuraavaksi oli aika luoda uusi käyttäjä. Aloitin kirjautumalla ssh:n komennolla ssh harjoitus@localhost.
+
+<img src="sshharjoitus5.png" width="600" />
+
+Loin käyttäjän koso komennolla sudo adduser koso ja klikkasin enter viisi kertaa ja syötin "y" ja enter. Käyttäjä koso on nyt lisätty.
+
+<img src="adduser.png" width="600" />
+
+Annoin uudelle käyttäjälle sudo-oikeudet komennolla sudo adduser koso sudo. 
+
+<img src="adduser2.png" width="600" />
+
+Kopioin seuraavaksi root:n ssh-asetukset, jotta voin kirjautua omalla käyttäjällä komennoilla sudo cp -rvn /root/.ssh/ /home/koso/ ja sudo chown -R koso:koso /home/koso/
+
+<img src="adduser3.png" width="600" />
+
+Tehtävän viimeisessä osiossa automatisoin käyttäjän koso ssh-kirjautumisen, jonka jälkeen en tarvitse salasanoja, kun kirjaudun sisään. Käytin tehtävän tekoon useaa eri lähdettä, jotka on listattu lähdeluetteloon. Lisäksi minua kiinnosti, millaiset ohjeet ChatGPT antaisi tehtävän tekoon, joten syötin sille kysymyksen "Automatisoi ssh-kirjautuminen julkisen avaimen menetelmällä, niin että et tarvitse salasanoja, kun kirjaudut sisään. Voit käyttää kirjautumiseen localhost-osoitetta". Sain ChatGPT:ltä muutaman hyvän vinkin (nano-konfiguraatiotiedoston muokkaaminen ja komennot tiedostojen ja hakemistojen käyttöoikeuksien muokkaamiseen), mutta en käyttänyt muita sen antamia ohjeita, koska sen ohjeet ja komennot oli minulle vieraita. 
+
+Aloitin tämän osion muokkaamalla ssh-konfiguraatiotiedostoa. Pääsin tiedostoon komennolla sudo nano /etc/ssh/sshd_config ja tarkistin, että tiedostosta löytyy kohta, jossa lukee "PubkeyAuthentication yes" sekä kohta, jossa lukee "PasswordAuthentication no". PasswordAuthentication -kohdassa luki "yes", joten muutin sen "no". Tallensin tiedoston ja siirryin takaisin komentoriville. (ChatGPT)
+
+<img src="sshautomatisointi.png" width="600" />
+<img src="sshautomatisointi2.png" width="600" />
+
+Yritin käynnistää ssh-palvelimen uudelleen, mutta se ei onnistunut. Tarkistin komennolla ls -l ~/.ssh/ löytyvätkö aiemmin generoimani avaimet, eikä niitä löytynyt. En lähtenyt selvittämään asiaa sen tarkemmin, loin uudet avaimet komennolla ssh-keygen.
+
+<img src="sshkeygenuusiksi.png" width="600" />
+
+Tarkistin, että avaimet löytyvät komennolla ls -l ~/.ssh/. Avaimet löytyivät, jippii! 
+
+<img src="sshkeygenuusiksi2.png" width="600" />
+
+Seuraavaksi siirsin komennolla cat ~/.ssh/id_rsa.pub >> ~/ssh/authorized_keys id_rsa.pub-tiedoston sisällön .ssh/authorized_keys-tiedostoon. Tämän jälkeen muokkasin tiedostojen ja hakemistojen käyttöoikeuksia niin, että vain minulla on pääsy tärkeisiin ssh-tiedostoihin ja hakemistoihin. Tein tämän komennoilla chmod 700 ~/.ssh ja chmod 600 ~/.ssh/authorized_keys (ChatGPT).
+
+<img src="sshkomennot.png" width="600" />
+
+Käynnistin ssh-palvelimen uudelleen ja kirjauduin käyttäjällä "koso". Kirjautuminen tapahtui automaattisesti ssh-avaimen avulla ilman, että minun tarvitsi syöttää salasanaa.
+
+<img src="automaattinenkirjautuminen.png" width="600" />
+
+Lähteet: 
+
+https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/
+
+https://terokarvinen.com/linux-palvelimet/#h4-maailmakuulee
+
+https://terokarvinen.com/oldsite/add_ssh_public_key_account.html?fromSearch=ssh
+
+https://terokarvinen.com/linux-palvelimet/#h7-maalisuora
